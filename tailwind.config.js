@@ -8,7 +8,7 @@ export default {
     extend: {
       colors:{
         background:'rgba(var(--background))',
-        heading:'rgba(var(--heading))',
+        color1:'rgba(var(--color1))',
       }
     },
   },
