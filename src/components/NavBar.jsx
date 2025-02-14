@@ -23,14 +23,14 @@ const NavBar = () => {
 
             <div className='flex justify-center items-center space-x-5'>
                 {/* ✅ Single Theme Toggle Button for both Desktop & Mobile */}
-                <button 
-                    onClick={handleChangeTheme} 
+                <button
+                    onClick={handleChangeTheme}
                     className='z-50 bg-red-900 rounded-full transition-all duration-300 
                                w-7 h-7 md:w-10 md:h-10'
                 ></button>
 
                 {/* Mobile Menu Button (Only visible on small screens) */}
-               <HamburgerButton setToggleNav={setToggleNav} toggleNav={toggleNav} />
+                <HamburgerButton setToggleNav={setToggleNav} toggleNav={toggleNav} />
             </div>
 
             {/* Mobile Navigation */}

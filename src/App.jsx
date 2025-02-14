@@ -7,8 +7,11 @@ import { ThemeContext } from './contexts/ThemeContext.jsx'
 function App() {
   const { theme } = useContext(ThemeContext)
   return (
-    <div className={`${theme} w-[100dvw] h-[100dvh]`}>
+    <div className={`${theme} w-[100dvw]  overflow-hidden`}>
       <Home ></Home>
+      <div className=' w-full h-[200dvh]'>
+
+      </div>
     </div>
   )
 }
