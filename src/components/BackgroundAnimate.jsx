@@ -21,7 +21,6 @@ const BackgroundAnimate = () => {
                     start: "center-=135",
                     end: "center+=200 end",
                     scrub: 1,
-                    markers:true
                 }
             })
         gsap.to(box2.current,
