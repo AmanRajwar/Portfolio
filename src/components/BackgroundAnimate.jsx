@@ -16,12 +16,12 @@ const BackgroundAnimate = () => {
             {
                 x: 200,
                 duration: 1.2,
-                // ease: "power2.inOut",
                 scrollTrigger: {
                     trigger: box1.current,
                     start: "center-=135",
                     end: "center+=200 end",
                     scrub: 1,
+                    markers:true
                 }
             })
         gsap.to(box2.current,
@@ -48,16 +48,16 @@ const BackgroundAnimate = () => {
             })
     }, [])
     return (
-        <div className=" -rotate-12 absolute text-color1 inset-0 flex flex-col justify-around overflow-hidden items-center pointer-events-none  select-none  opacity-[0.07] -left-10">
+        <div className=" absolute text-color1 inset-0 flex flex-col justify-between overflow-hidden items-center pointer-events-none  select-none  opacity-[0.07] md:-left-14 -left-20 -rotate-[10deg]">
 
-            <div className="relative whitespace-nowrap overflow-hidden py-2 ">
-                <div ref={box1} class="inline-block  text-[8vw] font-display leading-none" >Creative Developer • Digital Artist • Interactive Designer • Creative Developer • Digital Artist • Interactive Designer • Creative Developer • Digital Artist • Interactive Designer • </div>
+            <div  className="relative whitespace-nowrap  py-2  ">
+                <div ref={box1}  class="inline-block  md:text-[8vw] text-[35vw]  font-display leading-none" >Creative Developer • Digital Artist • Interactive Designer • Creative Developer • Digital Artist • Interactive Designer • Creative Developer • Digital Artist • Interactive Designer • </div>
             </div>
-            <div ref={box2} class="relative whitespace-nowrap overflow-hidden py-2">
-                <div class="inline-block  text-[8vw] font-display leading-none">WebGL • Three.js • React • TypeScript • WebGL • Three.js • React • TypeScript • WebGL • Three.js • React • TypeScript • </div>
+            <div  class="relative whitespace-nowrap  py-2">
+                <div ref={box2} class="inline-block  md:text-[8vw] text-[35vw] font-display leading-none">WebGL • Three.js • React • TypeScript • WebGL • Three.js • React • TypeScript • WebGL • Three.js • React • TypeScript • </div>
             </div>
-            <div ref={box3} class="relative whitespace-nowrap overflow-hidden py-2">
-                <div class="inline-block  text-[8vw] font-display leading-none">Motion Design • 3D Animation • UI/UX • Motion Design • 3D Animation • UI/UX • Motion Design • 3D Animation • UI/UX • </div>
+            <div  class="relative whitespace-nowrap  py-2">
+                <div ref={box3} class="inline-block  md:text-[8vw] text-[35vw] font-display leading-none">Motion Design • 3D Animation • UI/UX • Motion Design • 3D Animation • UI/UX • Motion Design • 3D Animation • UI/UX • </div>
             </div>
         </div>
     )
