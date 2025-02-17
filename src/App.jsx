@@ -9,9 +9,6 @@ function App() {
   return (
     <div className={`${theme} w-[100dvw]  overflow-hidden`}>
       <Home ></Home>
-      <div className=' w-full h-[200dvh]'>
-
-      </div>
     </div>
   )
 }

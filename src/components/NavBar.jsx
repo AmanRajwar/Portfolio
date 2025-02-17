@@ -1,24 +1,43 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { ThemeContext } from '../contexts/ThemeContext.jsx';
 import MobileNav from './MobileNav.jsx';
 import HamburgerButton from './HamburgerButton.jsx';
-
+import { useGSAP } from '@gsap/react';
+import { HeroContext } from '../contexts/HeroAnimateContext.jsx';
+import gsap from 'gsap';
 const NavBar = () => {
     const { theme, setTheme } = useContext(ThemeContext);
     const [toggleNav, setToggleNav] = useState(false);
-
+    const { heroAnimate } = useContext(HeroContext)
+    const containerRef = useRef()
     const handleChangeTheme = () => {
         setTheme(theme === 'light' ? 'dark' : 'light');
     };
 
+    useGSAP(() => {
+        console.log(heroAnimate)
+        if (heroAnimate) {
+            gsap.to(containerRef.current, {
+                opacity: 1
+            })
+            gsap.from('.animate', {
+                y: -10,
+                stagger: 0.2,
+                duration:1,
+                delay:0.5
+            })
+
+        }
+
+    }, { dependencies: [heroAnimate], scope: containerRef })
     return (
-        <header className='relative flex bg-transparent top-0 left-0 w-full items-center justify-between py-2 px-3 md:py-6 md:px-16 text-color1 font-bold text-xl z-50  myUnderline'>
-            <h1 className='z-50 text-3xl'>Name</h1>
+        <header ref={containerRef} className=' opacity-0 fixed flex bg-transparent top-0 left-0 w-full items-center justify-between py-2 px-3 md:py-6 md:px-16 text-color1 font-bold text-xl z-50  myUnderline'>
+            <h1 className=' name z-50 text-3xl'>Name</h1>
 
             <div className='hidden md:flex justify-between space-x-8 items-center'>
-                <h1>Work</h1>
-                <h1>About</h1>
-                <h1>Contact</h1>
+                <h1 className='work animate'>Work</h1>
+                <h1 className='about animate' >About</h1>
+                <h1 className='contact animate'>Contact</h1>
             </div>
 
             <div className='flex justify-center items-center space-x-5'>

@@ -1,11 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
 import './index.css'
+import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import ThemeContextProvider from './contexts/ThemeContext.jsx'
+import HeroAnimateContextProvider from './contexts/HeroAnimateContext.jsx'
 
 createRoot(document.getElementById('root')).render(
-    <ThemeContextProvider>
+  <ThemeContextProvider>
+    <HeroAnimateContextProvider>
       <App />
-    </ThemeContextProvider>
+    </HeroAnimateContextProvider>
+  </ThemeContextProvider>
 )
