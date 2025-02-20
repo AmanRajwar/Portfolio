@@ -10,38 +10,43 @@ const NavBar = () => {
     const [toggleNav, setToggleNav] = useState(false);
     const { heroAnimate } = useContext(HeroContext)
     const containerRef = useRef()
+    const secondContainerRef = useRef()
     const handleChangeTheme = () => {
         setTheme(theme === 'light' ? 'dark' : 'light');
     };
 
+    const tl = gsap.timeline()
     useGSAP(() => {
-        console.log(heroAnimate)
         if (heroAnimate) {
-            gsap.to(containerRef.current, {
-                opacity: 1
-            })
-            gsap.from('.animate', {
-                y: -10,
-                stagger: 0.2,
-                duration:1,
-                delay:0.5
+            tl.to(containerRef.current, {
+                opacity: 1,
+                duration:0.5
             })
 
+            tl.fromTo('h1', {
+                y: -10,
+                opacity:0,
+            },{
+                y:0,
+                opacity:1,
+                stagger: 0.2,
+                duration: 0.8,
+            })
         }
 
-    }, { dependencies: [heroAnimate], scope: containerRef })
-    return (
-        <header ref={containerRef} className=' opacity-0 fixed flex bg-transparent top-0 left-0 w-full items-center justify-between py-2 px-3 md:py-6 md:px-16 text-color1 font-bold text-xl z-50  myUnderline'>
-            <h1 className=' name z-50 text-3xl'>Name</h1>
+    }, { dependencies: [heroAnimate], scope: containerRef.current })
 
-            <div className='hidden md:flex justify-between space-x-8 items-center'>
-                <h1 className='work animate'>Work</h1>
-                <h1 className='about animate' >About</h1>
-                <h1 className='contact animate'>Contact</h1>
+    return (
+        <header ref={containerRef} className=' opacity-0 fixed flex bg-transparent top-0  w-full items-center justify-between py-2 px-3 md:py-6 md:px-16 text-color1 font-bold text-xl z-50  myUnderline'>
+            <h1 className=' name z-50 text-3xl '>Name</h1>
+
+            <div ref={secondContainerRef} className='hidden md:flex justify-between space-x-8 items-center'>
+                <h1 className='work animate  '>Work</h1>
+                <h1 className='about animate  ' >About</h1>
+                <h1 className='contact animate  '>Contact</h1>
             </div>
 
             <div className='flex justify-center items-center space-x-5'>
-                {/* ✅ Single Theme Toggle Button for both Desktop & Mobile */}
                 <button
                     onClick={handleChangeTheme}
                     className='z-50 bg-red-900 rounded-full transition-all duration-300 
