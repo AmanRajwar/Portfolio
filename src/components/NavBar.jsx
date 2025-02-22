@@ -8,7 +8,7 @@ import gsap from 'gsap';
 const NavBar = () => {
     const { theme, setTheme } = useContext(ThemeContext);
     const [toggleNav, setToggleNav] = useState(false);
-    const { heroAnimate } = useContext(HeroContext)
+    const { isWelcomeAnimating } = useContext(HeroContext)
     const containerRef = useRef()
     const secondContainerRef = useRef()
     const handleChangeTheme = () => {
@@ -17,7 +17,7 @@ const NavBar = () => {
 
     const tl = gsap.timeline()
     useGSAP(() => {
-        if (heroAnimate) {
+        if (isWelcomeAnimating) {
             tl.to(containerRef.current, {
                 opacity: 1,
                 duration:0.5
@@ -34,7 +34,7 @@ const NavBar = () => {
             })
         }
 
-    }, { dependencies: [heroAnimate], scope: containerRef.current })
+    }, { dependencies: [isWelcomeAnimating], scope: containerRef.current })
 
     return (
         <header ref={containerRef} className=' opacity-0 fixed flex bg-transparent top-0  w-full items-center justify-between py-2 px-3 md:py-6 md:px-16 text-color1 font-bold text-xl z-50  myUnderline'>
