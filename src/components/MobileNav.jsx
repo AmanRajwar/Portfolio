@@ -27,7 +27,7 @@ const MobileNav = ({ toggle }) => {
         stagger:0.2
       })
     }
-  }, [toggle]) 
+  }, {dependencies: [toggle], scope: menuRef}) 
   
 
   return (
