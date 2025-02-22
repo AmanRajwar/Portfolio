@@ -7,7 +7,7 @@ import { MobileViewContext } from '../contexts/MobileViewContext';
 const WelcomeSection = () => {
     const boxRef = useRef()
     const containerRef = useRef()
-    const { heroAnimate, setHeroAnimate } = useContext(HeroContext)
+    const { isWelcomeAnimating, setWelcomeAnimate } = useContext(HeroContext)
     const isMobile = useContext(MobileViewContext);
     const [hideWelcome, setHideWelcome] = useState(false)
 
@@ -66,7 +66,7 @@ const WelcomeSection = () => {
                     top: 0,
                     duration: 0.5,
                     onComplete: () => {
-                        setHeroAnimate(true)
+                        setWelcomeAnimate(true)
                     }
                 }, '>-0.1')
 
@@ -85,8 +85,10 @@ const WelcomeSection = () => {
                 y: '-100vh',
                 ease: 'power4.in',
                 delay: '0.28',
-                onComplete:()=> {
-                    setHideWelcome(true)
+                onComplete: () => {
+                    setTimeout(() => {
+                        setHideWelcome(true)
+                    }, 300);
                 }
             });
 

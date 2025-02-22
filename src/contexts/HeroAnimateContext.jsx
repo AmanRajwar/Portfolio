@@ -5,9 +5,9 @@ export const HeroContext = createContext(true)
 
 const HeroAnimateContextProvider= ({children}) => {
 
-    const [heroAnimate,setHeroAnimate] = useState()
+    const [isWelcomeAnimating,setWelcomeAnimate] = useState()
   return (
-    <HeroContext.Provider value={{heroAnimate, setHeroAnimate}}>
+    <HeroContext.Provider value={{isWelcomeAnimating, setWelcomeAnimate}}>
         {children}
     </HeroContext.Provider>
   )
