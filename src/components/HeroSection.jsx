@@ -17,6 +17,8 @@ const HeroSection = () => {
             ease:'back.out'
         });
     }, { scope: containerRef.current });
+
+    
     return (
         <section ref={containerRef} className='container text-color1 flex items-center justify-center flex-col  max-md:mt-[-10vh]'>
             <h1 className='opacity-50  tracking-widest uppercase' >CREATIVE DEVELOPER</h1>
