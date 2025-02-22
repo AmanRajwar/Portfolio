@@ -6,7 +6,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 
 const BackgroundAnimate = () => {
-    const [state, setState] = useState(1)
     const box1 = useRef()
     const box2 = useRef()
     const box3 = useRef()
