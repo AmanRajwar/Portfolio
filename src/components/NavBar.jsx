@@ -55,7 +55,7 @@ const NavBar = () => {
 
     return (
         <header ref={containerRef} className={`${blur?'myUnderline backdrop-blur-md bg-background/80':''}opacity-0 fixed flex  top-0  w-full items-center justify-between py-4 px-3 md:py-6 md:px-16 text-color1 font-bold text-xl z-50 `}>
-            <h1 className=' name z-50 text-3xl '>Name</h1>
+            <h1 className=' name z-50 text-3xl '>Aman Rajwar</h1>
 
             <div ref={secondContainerRef} className='hidden md:flex justify-between space-x-8 items-center'>
                 <h1 className='work animate  '>Work</h1>
