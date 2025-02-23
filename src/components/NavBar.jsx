@@ -5,12 +5,20 @@ import HamburgerButton from './HamburgerButton.jsx';
 import { useGSAP } from '@gsap/react';
 import { HeroContext } from '../contexts/HeroAnimateContext.jsx';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all'
+
+
+
+
+gsap.registerPlugin(ScrollTrigger)
+
 const NavBar = () => {
     const { theme, setTheme } = useContext(ThemeContext);
     const [toggleNav, setToggleNav] = useState(false);
     const { isWelcomeAnimating } = useContext(HeroContext)
     const containerRef = useRef()
     const secondContainerRef = useRef()
+    const [blur, setBlur] = useState(false)
     const handleChangeTheme = () => {
         setTheme(theme === 'light' ? 'dark' : 'light');
     };
@@ -20,24 +28,33 @@ const NavBar = () => {
         if (isWelcomeAnimating) {
             tl.to(containerRef.current, {
                 opacity: 1,
-                duration:0.5
+                duration: 0.5
             })
 
             tl.fromTo('h1', {
                 y: -10,
-                opacity:0,
-            },{
-                y:0,
-                opacity:1,
+                opacity: 0,
+            }, {
+                y: 0,
+                opacity: 1,
                 stagger: 0.2,
                 duration: 0.8,
             })
+
+            gsap.to(containerRef.current, {
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top+=15vh top",
+                    onEnter: () => setBlur(true),
+                    onLeaveBack: () => setBlur(false),
+                }
+            });
         }
 
     }, { dependencies: [isWelcomeAnimating], scope: containerRef.current })
 
     return (
-        <header ref={containerRef} className=' opacity-0 fixed flex bg-transparent top-0  w-full items-center justify-between py-2 px-3 md:py-6 md:px-16 text-color1 font-bold text-xl z-50  myUnderline'>
+        <header ref={containerRef} className={`${blur?'myUnderline backdrop-blur-md bg-background/80':''}opacity-0 fixed flex  top-0  w-full items-center justify-between py-4 px-3 md:py-6 md:px-16 text-color1 font-bold text-xl z-50 `}>
             <h1 className=' name z-50 text-3xl '>Name</h1>
 
             <div ref={secondContainerRef} className='hidden md:flex justify-between space-x-8 items-center'>

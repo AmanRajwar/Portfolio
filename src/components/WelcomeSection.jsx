@@ -82,7 +82,7 @@ const WelcomeSection = () => {
                 visibility: "none",
                 opacity: 0,
                 duration: 0.6,
-                y: '-100vh',
+                y: '-105vh',
                 ease: 'power4.in',
                 delay: '0.28',
                 onComplete: () => {

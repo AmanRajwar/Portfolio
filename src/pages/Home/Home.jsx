@@ -20,8 +20,7 @@ const Home = () => {
       <main className='bg-background'>
         <section className='  w-full min-h-[100svh]  relative   flex flex-col items-center justify-center '>
           <BackgroundAnimate />
-          {/* {state ? <WelcomeSection /> : <HeroSection />} */}
-          <HeroSection />
+          {state ? <WelcomeSection /> : <HeroSection />}
         </section>
       </main>
       {
