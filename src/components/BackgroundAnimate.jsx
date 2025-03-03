@@ -13,8 +13,10 @@ const BackgroundAnimate = () => {
     useGSAP(() => {
         gsap.to(box1.current,
             {
-                x: 200,
+                x: 400,
                 duration: 1.2,
+                ease:'slow',
+
                 scrollTrigger: {
                     trigger: box1.current,
                     start: "center-=135",
@@ -24,8 +26,9 @@ const BackgroundAnimate = () => {
             })
         gsap.to(box2.current,
             {
-                x: -300,
+                x: -600,
                 duration: 1.2,
+                ease:'slow',
                 scrollTrigger: {
                     trigger: box2.current,
                     start: "center-=393vh",
@@ -35,8 +38,9 @@ const BackgroundAnimate = () => {
             })
         gsap.to(box3.current,
             {
-                x: 400,
+                x: 800,
                 duration: 1.2,
+                ease:'slow',
                 scrollTrigger: {
                     trigger: box3.current,
                     start: "top-=",
