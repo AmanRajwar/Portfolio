@@ -9,6 +9,7 @@ export default {
       colors:{
         background:'rgba(var(--background))',
         color1:'rgba(var(--color1))',
+        blue1:'#0077b6'
       }
     },
   },
