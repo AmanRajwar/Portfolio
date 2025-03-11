@@ -38,7 +38,7 @@ const HeroSection = () => {
 
 
     return (
-        <section ref={containerRef} className='container text-color1 flex items-center justify-center flex-col  max-md:mt-[-10vh]'>
+        <section ref={containerRef} className=' text-color1 flex items-center justify-center flex-col  max-md:mt-[-10vh]'>
             <h1 className=' help-text opacity-50  tracking-widest uppercase' >CREATIVE DEVELOPER</h1>
             <h1 className=' my-10 text-[clamp(2.5rem,7vw,6rem)] max-w-[13em] text-center leading-[1.2] '>
                 <TextAnimateUP str={'Crafting'} /> <TextAnimateUP str={'Digital'} /> <TextAnimateUP str={'Experiences'} /> <TextAnimateUP str={'Through'} /> <TextAnimateUP str={'Code'} /> <TextAnimateUP str={'& '} /> <TextAnimateUP str={'Design'} />
